@@ -1,0 +1,18 @@
+next_move: Bitte machen Sie Ihren nächsten Zug
+which_game: Bitte wählen Sie ein Spiel
+not_free: Diese Position ist nicht frei
+winner: Der Gewinner ist
+integer: Der Wert muss eine ganze Zahl sein
+tie: Das Spiel ist unentschieden
+between: Der Wert sollte zwischen und sein
+and: und
+menu_game_types: |
+  Wählen Sie Ihr Spiel:
+   1 - Mensch gegen Mensch
+   2 - Mensch gegen Computer
+   3 - Computer gegen Computer
+menu_first_player: |
+  wählen Sie den ersten Spieler:
+   1 - Spieler eins
+   2 - Spieler zwei
+menu_lang: Wählen Sie die Sprache

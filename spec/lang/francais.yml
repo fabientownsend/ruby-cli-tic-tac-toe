@@ -1,0 +1,17 @@
+board_size: |
+  Select the board size:
+  Size 3x3
+  Size 4x4
+next_move: Prochaine position ?
+which_game: Choisir un type de jeux
+not_free: Cette position n'est pas libre
+winner: Le gagnant est
+tie: aexeco
+between: La valeur doit etre entre
+and: et
+menu_game_types: |
+  Selectionnez votre type de jeux:
+   1 - Humain vs. Humain
+   2 - Humain vs. Ordinateur
+   3 - Ordinateur vs. Ordinateur
+menu_lang: Selectionner la langue
