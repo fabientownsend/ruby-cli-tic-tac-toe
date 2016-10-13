@@ -18,7 +18,7 @@ $ bundle install --binstubs
 
 **Example**
 ```bash
-$ ruby ./bin/tic_tac_toe
+$ bundle exec ruby ./bin/tic_tac_toe
 $ 2 #select english language
 $ 2 #select Human vs. Computer type game
 $ 1 #let the player one start
@@ -28,17 +28,17 @@ $ 4 #put the mark on the position 4
 ## Run the tests
 **Run all tests**
 ```bash
-$ rspec
+$ bundle exec rspec
 ```
 
 **Run class tests**
 ```bash
-$ rspec spec/class_name.rb
+$ bundle exec rspec spec/class_name.rb
 ```
 
 **Run methot test**
 ```bash
-$ rspec spec/class_name.rb:12
+$ bundle exec rspec spec/class_name.rb:12
 ```
 note that 12 is the line of the test
 
