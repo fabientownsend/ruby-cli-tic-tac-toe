@@ -19,8 +19,8 @@ class GamePlay
   def board_size
     default_size = 1
 
-    @ui.display_menu_board(default_size)
-    menu_size = @ui.menu_board_size
+    @ui.display_board_menu(default_size)
+    menu_size = @ui.board_size_menu
     selection = get_user_value(@VALUE_MIN, menu_size, default_size)
 
     selection += 2
@@ -31,8 +31,8 @@ class GamePlay
   def language
     default_lang = 2
 
-    @ui.display_menu_lang(default_lang)
-    menu_size = @ui.menu_lang_size
+    @ui.display_lang_menu(default_lang)
+    menu_size = @ui.lang_size_menu
     selection = get_user_value(@VALUE_MIN, menu_size, default_lang)
 
     @ui.set_lang(selection)
@@ -41,8 +41,8 @@ class GamePlay
   def game_selection
     default_game = 2
 
-    @ui.display_menu_type_game(default_game)
-    menu_size = @ui.menu_type_game_size
+    @ui.display_type_game_menu(default_game)
+    menu_size = @ui.type_game_size_menu
     selection = get_user_value(@VALUE_MIN, menu_size, default_game)
 
     create_players_for_game(selection)
@@ -51,7 +51,7 @@ class GamePlay
   def select_first_player
     default_first_player = 1
 
-    @ui.menu_first_player(default_first_player)
+    @ui.first_player_menu(default_first_player)
     selection = get_user_value(@VALUE_MIN, @players.size, default_first_player)
 
     set_next_player(selection)
