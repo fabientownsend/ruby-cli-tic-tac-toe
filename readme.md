@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/fabientownsend/tic-tac-toe.svg?branch=master)](https://travis-ci.org/fabientownsend/tic-tac-toe)
-[![Coverage Status](https://coveralls.io/repos/github/fabientownsend/tic-tac-toe/badge.svg?branch=master)](https://coveralls.io/github/fabientownsend/tic-tac-toe?branch=master)
+[![Build Status](https://travis-ci.org/fabientownsend/ruby-cli-tic-tac-toe.svg?branch=master)](https://travis-ci.org/fabientownsend/ruby-cli-tic-tac-toe)
+[![Coverage Status](https://coveralls.io/repos/github/fabientownsend/ruby-cli-tic-tac-toe/badge.svg?branch=master)](https://coveralls.io/github/fabientownsend/ruby-cli-tic-tac-toe?branch=master)
 #Unbeatable Tic-Tac-Toe with Ruby
 ![tictactoe](https://lh3.googleusercontent.com/-a9v5dd-AVfc/VqzalVGTb6I/AAAAAAAAF5A/rIYiW0SVVfU/w1406-h794-no/tictactoe.png)
 
