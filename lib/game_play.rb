@@ -1,5 +1,6 @@
 require 'players_factory'
 require 'board'
+require 'game'
 
 module GameType
   HUMAN_VS_HUMAN = 1
@@ -14,6 +15,7 @@ class GamePlay
     @board = Board.new
     @ui = ui
     @VALUE_MIN = 1
+    @game = nil
   end
 
   def board_size
@@ -58,8 +60,7 @@ class GamePlay
   end
 
   def play
-    until game_over
-      get_next_player
+    until @game.over?
       display_board
       play_move
     end
@@ -99,11 +100,10 @@ class GamePlay
 
   def set_next_player(selection)
     if selection == 1
-      @current_player = @players[1]
-      @players.reverse!
+      @game = Game.new(@board, @players[0], @players[1])
     else
-      @current_player = @player_one
-      @current_player = @players[0]
+      @players.reverse!
+      @game = Game.new(@board, @players[0], @players[1])
     end
   end
 
@@ -120,19 +120,11 @@ class GamePlay
   end
 
   def display_result
-    if board.win?(@current_player.mark)
-      ui.winner(@current_player.mark)
-    elsif board.tie?
+    if (@game.over? && @game.winner.empty?)
       ui.tie
+    else
+      ui.winner(@game.winner)
     end
-  end
-
-  def get_next_player
-    @current_player = @players.reverse!.first
-  end
-
-  def game_over
-    board.win?(@current_player.mark) || board.tie?
   end
 
   def display_board
@@ -140,25 +132,7 @@ class GamePlay
   end
 
   def play_move
-    ui.display_next_player(@current_player.mark)
-    position = @current_player.next_move
-
-    if !in_range?(position)
-      ui.should_be_between(board.POSITION_MIN, board.POSITION_MAX - 1)
-      play_move
-    elsif available?(position)
-      ui.occupied_position
-      play_move
-    else
-      board.set_mark(@current_player.mark, position)
-    end
-  end
-
-  def in_range?(position)
-    position >= board.POSITION_MIN && position < board.POSITION_MAX
-  end
-
-  def available?(position)
-    !@board.free_positions.include?(position)
+    ui.display_next_player(@game.current_player.mark)
+    @game.play
   end
 end

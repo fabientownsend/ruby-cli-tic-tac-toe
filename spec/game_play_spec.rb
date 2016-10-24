@@ -18,26 +18,6 @@ RSpec.describe GamePlay do
     end.to change { output.string }.to include("It's a tie!\n")
   end
 
-  it "type game Human vs. Computer when user use default value by typing enter" do
-    type_game = "\n"
-    first_player = "1\n"
-    game_play = create_game_play("#{type_game}#{first_player}")
-
-    game_play.game_selection
-    game_play.select_first_player
-    expect(game_play.current_player).to be_a(Computer)
-  end
-
-  it "should be a computer as first player" do
-    type_game = "2\n"
-    first_player = "1\n"
-    game_play = create_game_play("#{type_game}#{first_player}")
-
-    game_play.game_selection
-    game_play.select_first_player
-    expect(game_play.current_player).to be_a(Computer)
-  end
-
   it "should finish the game with X as a winner" do
     type_game = "1\n"
     first_player = "1\n"
@@ -66,7 +46,7 @@ RSpec.describe GamePlay do
 
   it "should be win by the player two with the second move already played" do
     type_game = "1\n"
-    first_player = "2\n"
+    first_player = "1\n"
     moves_part_one = "0\n"
     already_played = "0\n"
     moves_part_two = "1\n3\n2\n6\n"
@@ -76,12 +56,12 @@ RSpec.describe GamePlay do
       game_play.game_selection
       game_play.select_first_player
       game_play.play
-    end.to change { output.string }.to include("The winner is: O")
+    end.to change { output.string }.to include("The winner is: X")
   end
 
   it "should be win by the player two with the second move too hight" do
     type_game = "1\n"
-    first_player = "2\n"
+    first_player = "1\n"
     moves_part_one = "0\n"
     too_hight = "100\n"
     moves_part_two = "1\n3\n2\n6\n"
@@ -91,13 +71,13 @@ RSpec.describe GamePlay do
       game_play.game_selection
       game_play.select_first_player
       game_play.play
-    end.to change { output.string }.to include("The winner is: O")
+    end.to change { output.string }.to include("The winner is: X")
   end
 
 
   it "should be win by the player two (round) with the second move too low" do
     type_game = "1\n"
-    first_player = "2\n"
+    first_player = "1\n"
     moves_part_one = "0\n"
     too_low = "-100\n"
     moves_part_two = "1\n3\n2\n6\n"
@@ -107,12 +87,12 @@ RSpec.describe GamePlay do
       game_play.game_selection
       game_play.select_first_player
       game_play.play
-    end.to change { output.string }.to include("The winner is: O")
+    end.to change { output.string }.to include("The winner is: X")
   end
 
   it "should be win by the player two (round) with the second move invalid" do
     type_game = "1\n"
-    first_player = "2\n"
+    first_player = "1\n"
     moves_part_one = "0\n"
     invalid_move = "fdhasjfjd\n"
     moves_part_two = "1\n3\n2\n6\n"
@@ -122,7 +102,7 @@ RSpec.describe GamePlay do
       game_play.game_selection
       game_play.select_first_player
       game_play.play
-    end.to change { output.string }.to include("The winner is: O")
+    end.to change { output.string }.to include("The winner is: X")
   end
 
   it "should be a tie when computer vs computer" do
