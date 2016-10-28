@@ -133,6 +133,17 @@ class GamePlay
 
   def play_move
     ui.display_next_player(@game.current_player.mark)
-    @game.play
+    begin
+      @game.play
+    rescue OccupiedPositionError
+      ui.occupied_position
+      play_move
+    rescue OutOfRangeError
+      ui.should_be_between(board.POSITION_MIN, board.POSITION_MAX - 1)
+      play_move
+    rescue ArgumentError
+      ui.must_be_integer
+      play_move
+    end
   end
 end
